@@ -1,9 +1,9 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Ksc ingame",
+   Name = "Ksc lobby",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Ksc Script Official DOORS *ingame* v1",
+   LoadingTitle = "Ksc Script Official DOORS *lobby* v1 (Credits To Lolseek)",
    LoadingSubtitle = "by seekontop1",
    Theme = "DarkBlue", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
@@ -17,16 +17,16 @@ local Window = Rayfield:CreateWindow({
    },
 
    Discord = {
-      Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
       Invite = "x7FQ6NyVrD", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
 
-   KeySystem = true, -- Set this to true to use our key system
+    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "KscOffical",
       Subtitle = "Key System",
-      Note = "join our discord for free key!!
+      Note = "Key : TheRealKscript
 note : the key changes so many times", -- Use this to tell the user how to get a key
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
@@ -139,5 +139,31 @@ local Yield = PlayerTab:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+   end,
+
+local Player = Window:CreateTab("LocalPlayer", 4483362458) -- Title, Image
+local Hubs = Window:CreateTab("Hubs", 4483362458) -- Title, Image
+local Other = Window:CreateTab("Other", 4483362458) -- Title, Image
+
+local DestroyRayfield = Other:CreateButton({
+   Name = "Destroy the interface",
+   Callback = function()
+   Rayfield:Destroy()
+   end,
+})
+
+local GuidingSploit = Hubs:CreateButton({
+   Name = "Guiding Sploit by AROxMBUSH",
+   Callback = function()
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/Teilsthebfdifan/Guidingsploit/refs/heads/main/Protected_7043316053291658.txt"))()
+   end,
+})
+
+local EnableJump = Player:CreateToggle({
+   Name = "Enable Jump",
+   CurrentValue = false,
+   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+   game.Players.LocalPlayer.Character:SetAttribute("CanJump", Value)
    end,
 })
