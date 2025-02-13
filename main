@@ -1,0 +1,7 @@
+local PlaceID = game.PlaceId
+
+if PlaceID == 6516141723 then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/theofficalnoodles/Doors-offical-Ksc/refs/heads/main/Lobby"))()
+elseif PlaceID == 6839171747
+loadstring(game:HttpGet("https://raw.githubusercontent.com/theofficalnoodles/Doors-offical-Ksc/refs/heads/main/InGame"))()
+end)
